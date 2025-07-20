@@ -1,0 +1,90 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# TypeScript
+dist/
+*.tsbuildinfo
+.tsc-cache/
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+config/local.yaml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Output
+output/
+exports/
+generated/
+*.sql.gz
+*.csv.gz
+*.json.gz
+
+# Temporary
+tmp/
+temp/
+.tmp/
+*.tmp
+*.temp
+
+# Cache
+.cache/
+.redis-data/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+data/local/
+
+# OS Files
+Thumbs.db
+.DS_Store
+
+# Python (for scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+
+# Documentation
+docs/_build/
+docs/.venv/
+
+# Backups
+*.bak
+*.backup
+*.old
+
+# Security
+*.pem
+*.key
+*.cert
+*.crt
+secrets/ 

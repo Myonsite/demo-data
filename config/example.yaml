@@ -1,0 +1,191 @@
+# Demo Data Generator Configuration Example
+# Copy this file to create your own configuration
+
+# Scenario configuration
+scenario:
+  name: healthcare-clinic
+  description: Multi-specialty healthcare clinic with full patient lifecycle
+  industry: healthcare
+  
+# Output configuration  
+output:
+  format: sql  # Options: sql, json, csv, jsonl, fhir
+  file: output/demo-data.sql
+  compression: false  # Enable gzip compression
+  batch_size: 1000  # Records per batch
+  
+# Database configuration (for direct import)
+database:
+  type: postgres
+  host: localhost
+  port: 5432
+  name: medinovai_demo
+  username: ${DB_USER}
+  password: ${DB_PASSWORD}
+  ssl: false
+  
+# Entity generation configuration
+entities:
+  # Tenant configuration
+  tenants:
+    count: 3
+    names:
+      - "Sunrise Medical Center"
+      - "Valley Health Clinic"  
+      - "Coastal Wellness Group"
+    features:
+      - multi_specialty: true
+      - telemedicine: true
+      - lab_integration: true
+      
+  # Healthcare providers
+  providers:
+    count: 50
+    distribution:
+      primary_care: 40%
+      specialists: 35%
+      nurses: 20%
+      support_staff: 5%
+    specialties:
+      - internal_medicine
+      - pediatrics
+      - cardiology
+      - orthopedics
+      - dermatology
+      - psychiatry
+      
+  # Patients
+  patients:
+    count: 1000
+    demographics:
+      age_range: [0, 95]
+      gender_distribution: balanced
+      ethnicity: census_based  # Uses US census data
+    conditions:
+      chronic_percentage: 30
+      acute_percentage: 50
+      preventive_percentage: 20
+      
+  # Appointments
+  appointments:
+    count: 5000
+    date_range: 
+      start: -365  # Days in the past
+      end: 90      # Days in the future
+    types:
+      - routine_checkup: 40%
+      - follow_up: 30%
+      - urgent_care: 20%
+      - preventive: 10%
+    no_show_rate: 5%
+    
+  # Medical records
+  medical_records:
+    per_patient_range: [5, 20]
+    types:
+      - clinical_notes
+      - lab_results
+      - prescriptions
+      - imaging_reports
+      - discharge_summaries
+      
+  # Lab results
+  lab_results:
+    common_panels:
+      - cbc_with_differential
+      - comprehensive_metabolic
+      - lipid_panel
+      - thyroid_function
+      - hemoglobin_a1c
+    result_variation: age_gender_based
+    
+  # Prescriptions
+  prescriptions:
+    per_patient_range: [0, 10]
+    medication_categories:
+      - cardiovascular
+      - antibiotics
+      - pain_management
+      - mental_health
+      - diabetes
+    refill_patterns: realistic
+    
+# Relationship configuration
+relationships:
+  # Provider-Patient relationships
+  provider_patient:
+    type: many_to_many
+    distribution: normal
+    avg_patients_per_provider: 200
+    
+  # Family relationships
+  family_groups:
+    enabled: true
+    avg_size: 2.5
+    types:
+      - spouse
+      - parent_child
+      - siblings
+      
+  # Referral networks
+  referrals:
+    enabled: true
+    inter_specialty_rate: 15%
+    follow_up_rate: 80%
+    
+# Data quality settings
+quality:
+  # Validation rules
+  validation:
+    strict_mode: true
+    medical_accuracy: true
+    relationship_integrity: true
+    
+  # Anonymization
+  anonymization:
+    enabled: true
+    methods:
+      - name_substitution
+      - date_shifting
+      - id_mapping
+      
+  # Consistency checks
+  consistency:
+    temporal_validation: true
+    cross_reference_check: true
+    duplicate_prevention: true
+    
+# Performance settings
+performance:
+  parallel_workers: 4
+  memory_limit: 2048  # MB
+  streaming_threshold: 10000  # Records
+  
+# Advanced features
+features:
+  # AI-powered generation
+  ai_generation:
+    enabled: true
+    clinical_notes: true
+    realistic_patterns: true
+    
+  # Temporal patterns
+  temporal_patterns:
+    business_hours: true
+    seasonal_variations: true
+    emergency_patterns: true
+    
+  # Geographic distribution
+  geographic:
+    enabled: true
+    service_area_radius: 50  # miles
+    zip_codes: census_based
+    
+# Logging configuration
+logging:
+  level: info  # debug, info, warn, error
+  file: logs/generator.log
+  console: true
+  
+# Seed configuration (for reproducibility)
+seed: 12345  # Random seed for consistent generation 

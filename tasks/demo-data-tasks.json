@@ -1,0 +1,398 @@
+{
+  "project": "Demo Data Generation System",
+  "description": "Flexible, intelligent demo data generation platform for MedinovaIOS",
+  "epics": [
+    {
+      "id": "epic-dd-001",
+      "title": "Core Infrastructure",
+      "description": "Build the foundational architecture and framework"
+    },
+    {
+      "id": "epic-dd-002", 
+      "title": "Data Generators",
+      "description": "Implement intelligent data generation engines"
+    },
+    {
+      "id": "epic-dd-003",
+      "title": "Healthcare Scenarios",
+      "description": "Create healthcare-specific data generation scenarios"
+    },
+    {
+      "id": "epic-dd-004",
+      "title": "Export & Import",
+      "description": "Build data export/import capabilities"
+    },
+    {
+      "id": "epic-dd-005",
+      "title": "Quality & Validation",
+      "description": "Implement data validation and quality checks"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-dd-001",
+      "title": "Setup Core Architecture",
+      "epic_id": "epic-dd-001",
+      "description": "Create base project structure with TypeScript, dependency injection, logging framework, and error handling",
+      "priority": "critical",
+      "estimated_hours": 16,
+      "assignee": "backend-team",
+      "tags": ["architecture", "setup"],
+      "acceptance_criteria": [
+        "TypeScript configuration complete",
+        "Dependency injection container working",
+        "Logging framework integrated",
+        "Error handling middleware setup"
+      ]
+    },
+    {
+      "id": "task-dd-002",
+      "title": "Configuration Management System",
+      "epic_id": "epic-dd-001",
+      "description": "Build YAML/JSON configuration parser with schema validation, environment variable support, and profile management",
+      "priority": "high",
+      "estimated_hours": 12,
+      "assignee": "backend-team",
+      "dependencies": ["task-dd-001"],
+      "tags": ["configuration", "validation"],
+      "acceptance_criteria": [
+        "YAML/JSON parser implemented",
+        "Schema validation working",
+        "Environment variable interpolation",
+        "Profile inheritance supported"
+      ]
+    },
+    {
+      "id": "task-dd-003",
+      "title": "Base Data Generator Framework",
+      "epic_id": "epic-dd-002",
+      "description": "Create abstract base classes for data generators with plugin architecture and lifecycle hooks",
+      "priority": "critical",
+      "estimated_hours": 20,
+      "assignee": "backend-team",
+      "dependencies": ["task-dd-001"],
+      "tags": ["generator", "framework"],
+      "acceptance_criteria": [
+        "Abstract generator classes created",
+        "Plugin registration system",
+        "Lifecycle hooks implemented",
+        "Generator context management"
+      ]
+    },
+    {
+      "id": "task-dd-004",
+      "title": "Person Generator Engine",
+      "epic_id": "epic-dd-002",
+      "description": "Build intelligent person data generator with realistic demographics, names, addresses, and relationships",
+      "priority": "high",
+      "estimated_hours": 24,
+      "assignee": "data-team",
+      "dependencies": ["task-dd-003"],
+      "tags": ["generator", "demographics"],
+      "acceptance_criteria": [
+        "Realistic name generation by ethnicity",
+        "Age-appropriate data generation",
+        "Address validation with real zip codes",
+        "Family relationship builder"
+      ]
+    },
+    {
+      "id": "task-dd-005",
+      "title": "Medical Data Generator",
+      "epic_id": "epic-dd-002",
+      "description": "Create medical data generators for conditions, medications, procedures, and lab results",
+      "priority": "high",
+      "estimated_hours": 32,
+      "assignee": "clinical-team",
+      "dependencies": ["task-dd-003"],
+      "tags": ["generator", "medical"],
+      "acceptance_criteria": [
+        "ICD-10 code generation",
+        "CPT code relationships",
+        "Medication interaction checks",
+        "Lab result range validation"
+      ]
+    },
+    {
+      "id": "task-dd-006",
+      "title": "Relationship Builder Engine",
+      "epic_id": "epic-dd-002",
+      "description": "Implement graph-based relationship builder for complex entity relationships",
+      "priority": "medium",
+      "estimated_hours": 20,
+      "assignee": "backend-team",
+      "dependencies": ["task-dd-003"],
+      "tags": ["relationships", "graph"],
+      "acceptance_criteria": [
+        "Graph data structure implementation",
+        "Relationship constraint validation",
+        "Circular reference prevention",
+        "Relationship query API"
+      ]
+    },
+    {
+      "id": "task-dd-007",
+      "title": "Healthcare Provider Scenario",
+      "epic_id": "epic-dd-003",
+      "description": "Create complete healthcare provider scenario with clinics, staff, schedules, and patients",
+      "priority": "high",
+      "estimated_hours": 24,
+      "assignee": "product-team",
+      "dependencies": ["task-dd-004", "task-dd-005"],
+      "tags": ["scenario", "healthcare"],
+      "acceptance_criteria": [
+        "Multi-specialty clinic generation",
+        "Staff scheduling with shifts",
+        "Patient appointment patterns",
+        "Resource allocation logic"
+      ]
+    },
+    {
+      "id": "task-dd-008",
+      "title": "Clinical Trial Scenario",
+      "epic_id": "epic-dd-003",
+      "description": "Build clinical trial data generation with protocols, phases, participants, and outcomes",
+      "priority": "medium",
+      "estimated_hours": 28,
+      "assignee": "clinical-team",
+      "dependencies": ["task-dd-004", "task-dd-005"],
+      "tags": ["scenario", "research"],
+      "acceptance_criteria": [
+        "Trial protocol generation",
+        "Participant randomization",
+        "Adverse event simulation",
+        "Outcome data generation"
+      ]
+    },
+    {
+      "id": "task-dd-009",
+      "title": "Emergency Department Scenario",
+      "epic_id": "epic-dd-003",
+      "description": "Create ED scenario with triage, patient flow, resource utilization, and outcomes",
+      "priority": "medium",
+      "estimated_hours": 20,
+      "assignee": "clinical-team",
+      "dependencies": ["task-dd-004", "task-dd-005"],
+      "tags": ["scenario", "emergency"],
+      "acceptance_criteria": [
+        "Triage level assignment",
+        "Wait time simulation",
+        "Resource constraint modeling",
+        "Admission/discharge patterns"
+      ]
+    },
+    {
+      "id": "task-dd-010",
+      "title": "SQL Export Engine",
+      "epic_id": "epic-dd-004",
+      "description": "Build SQL script generator with multiple dialect support and transaction batching",
+      "priority": "high",
+      "estimated_hours": 16,
+      "assignee": "backend-team",
+      "dependencies": ["task-dd-003"],
+      "tags": ["export", "sql"],
+      "acceptance_criteria": [
+        "PostgreSQL dialect support",
+        "MySQL dialect support",
+        "Transaction batching",
+        "Foreign key ordering"
+      ]
+    },
+    {
+      "id": "task-dd-011",
+      "title": "JSON/CSV Export Engine",
+      "epic_id": "epic-dd-004",
+      "description": "Create JSON and CSV exporters with streaming support for large datasets",
+      "priority": "high",
+      "estimated_hours": 12,
+      "assignee": "backend-team",
+      "dependencies": ["task-dd-003"],
+      "tags": ["export", "formats"],
+      "acceptance_criteria": [
+        "JSON/JSONL export",
+        "CSV with headers",
+        "Streaming for large files",
+        "Compression support"
+      ]
+    },
+    {
+      "id": "task-dd-012",
+      "title": "FHIR Bundle Generator",
+      "epic_id": "epic-dd-004",
+      "description": "Implement FHIR R4 bundle generation for healthcare interoperability",
+      "priority": "medium",
+      "estimated_hours": 24,
+      "assignee": "integration-team",
+      "dependencies": ["task-dd-005"],
+      "tags": ["export", "fhir"],
+      "acceptance_criteria": [
+        "FHIR R4 resource generation",
+        "Bundle composition",
+        "Reference resolution",
+        "Validation against profiles"
+      ]
+    },
+    {
+      "id": "task-dd-013",
+      "title": "Database Import Engine",
+      "epic_id": "epic-dd-004",
+      "description": "Build direct database import with connection pooling and progress tracking",
+      "priority": "medium",
+      "estimated_hours": 16,
+      "assignee": "backend-team",
+      "dependencies": ["task-dd-010"],
+      "tags": ["import", "database"],
+      "acceptance_criteria": [
+        "Connection pool management",
+        "Batch insert optimization",
+        "Progress tracking",
+        "Rollback support"
+      ]
+    },
+    {
+      "id": "task-dd-014",
+      "title": "Schema Validation Framework",
+      "epic_id": "epic-dd-005",
+      "description": "Create comprehensive schema validation with custom rules and error reporting",
+      "priority": "high",
+      "estimated_hours": 16,
+      "assignee": "qa-team",
+      "dependencies": ["task-dd-002"],
+      "tags": ["validation", "quality"],
+      "acceptance_criteria": [
+        "JSON Schema validation",
+        "Custom validation rules",
+        "Detailed error reporting",
+        "Performance optimization"
+      ]
+    },
+    {
+      "id": "task-dd-015",
+      "title": "Data Quality Analyzer",
+      "epic_id": "epic-dd-005",
+      "description": "Build data quality metrics calculator with statistical analysis and reporting",
+      "priority": "medium",
+      "estimated_hours": 20,
+      "assignee": "data-team",
+      "dependencies": ["task-dd-003"],
+      "tags": ["quality", "analytics"],
+      "acceptance_criteria": [
+        "Completeness metrics",
+        "Uniqueness validation",
+        "Distribution analysis",
+        "Anomaly detection"
+      ]
+    },
+    {
+      "id": "task-dd-016",
+      "title": "Medical Accuracy Validator",
+      "epic_id": "epic-dd-005",
+      "description": "Implement medical data validation for clinical accuracy and consistency",
+      "priority": "high",
+      "estimated_hours": 24,
+      "assignee": "clinical-team",
+      "dependencies": ["task-dd-005"],
+      "tags": ["validation", "medical"],
+      "acceptance_criteria": [
+        "Drug interaction validation",
+        "Diagnosis-procedure matching",
+        "Age-appropriate conditions",
+        "Lab result range validation"
+      ]
+    },
+    {
+      "id": "task-dd-017",
+      "title": "CLI Interface Development",
+      "epic_id": "epic-dd-001",
+      "description": "Create comprehensive CLI with interactive mode and progress visualization",
+      "priority": "high",
+      "estimated_hours": 16,
+      "assignee": "frontend-team",
+      "dependencies": ["task-dd-001"],
+      "tags": ["cli", "interface"],
+      "acceptance_criteria": [
+        "Command structure implementation",
+        "Interactive prompts",
+        "Progress bars and spinners",
+        "Colored output support"
+      ]
+    },
+    {
+      "id": "task-dd-018",
+      "title": "Performance Optimization",
+      "epic_id": "epic-dd-001",
+      "description": "Optimize for large-scale data generation with parallel processing and memory management",
+      "priority": "medium",
+      "estimated_hours": 20,
+      "assignee": "backend-team",
+      "dependencies": ["task-dd-003"],
+      "tags": ["performance", "optimization"],
+      "acceptance_criteria": [
+        "Worker thread implementation",
+        "Memory streaming for large datasets",
+        "Batch processing optimization",
+        "Performance benchmarks"
+      ]
+    },
+    {
+      "id": "task-dd-019",
+      "title": "Documentation & Examples",
+      "epic_id": "epic-dd-001",
+      "description": "Create comprehensive documentation with tutorials, API reference, and example scenarios",
+      "priority": "medium",
+      "estimated_hours": 24,
+      "assignee": "documentation-team",
+      "dependencies": ["task-dd-017"],
+      "tags": ["documentation", "examples"],
+      "acceptance_criteria": [
+        "Getting started guide",
+        "API documentation",
+        "Scenario examples",
+        "Video tutorials"
+      ]
+    },
+    {
+      "id": "task-dd-020",
+      "title": "Testing & CI/CD Pipeline",
+      "epic_id": "epic-dd-001",
+      "description": "Implement comprehensive test suite and automated deployment pipeline",
+      "priority": "high",
+      "estimated_hours": 20,
+      "assignee": "qa-team",
+      "dependencies": ["task-dd-001"],
+      "tags": ["testing", "ci-cd"],
+      "acceptance_criteria": [
+        "Unit test coverage > 80%",
+        "Integration test suite",
+        "GitHub Actions workflow",
+        "Docker image builds"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "milestone-dd-001",
+      "title": "Core Framework Complete",
+      "target_date": "2024-02-15",
+      "tasks": ["task-dd-001", "task-dd-002", "task-dd-003"]
+    },
+    {
+      "id": "milestone-dd-002",
+      "title": "Basic Generators Ready",
+      "target_date": "2024-03-01",
+      "tasks": ["task-dd-004", "task-dd-005", "task-dd-006"]
+    },
+    {
+      "id": "milestone-dd-003",
+      "title": "First Scenario Release",
+      "target_date": "2024-03-15",
+      "tasks": ["task-dd-007", "task-dd-010", "task-dd-011"]
+    },
+    {
+      "id": "milestone-dd-004",
+      "title": "Production Ready",
+      "target_date": "2024-04-01",
+      "tasks": ["task-dd-014", "task-dd-016", "task-dd-018", "task-dd-020"]
+    }
+  ]
+} 
